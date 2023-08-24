@@ -1,0 +1,14 @@
+footer{
+    background-color: rgb(163, 96, 109);
+}
+
+footer section{
+    display: flex;
+    width: 40%;
+    justify-content: space-around; 
+}
+
+.img-footer,
+section a{
+    width: 45px;
+}

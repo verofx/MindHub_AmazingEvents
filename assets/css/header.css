@@ -1,0 +1,67 @@
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: pink;
+}
+.logo{
+    width: 150px;
+}
+
+.botton-nav{
+    text-decoration: none;
+    color: black;
+    text-shadow: 8px 6px 4px white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+
+}
+
+.nav-bar{
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+}
+
+#textCarousel{
+    text-decoration: none;
+    color: white;
+    text-shadow: 8px 6px 4px black;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+}
+
+.carousel-header{
+    padding: 40px 20px;
+    background-color: rgb(163, 96, 109);
+}
+
+.section-checkboxs{
+    padding-left: 6%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1%;
+}
+
+.search-category{
+    width: 32%;
+    padding: 5px 0;
+    font-family: 'Architects Daughter';
+}
+
+.search-category input{
+    margin-right: 2px;
+}
+
+.section-search{
+    text-align: center;
+
+    padding: 10px;
+}
+
+.section-search img{
+    width: 2.5rem;
+}
+
