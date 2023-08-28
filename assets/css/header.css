@@ -6,7 +6,7 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: pink;
+    background-color: rgb(233, 172, 182);
 }
 .logo{
     width: 150px;

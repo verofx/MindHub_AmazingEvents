@@ -1,0 +1,23 @@
+.section-table{
+    padding: 15px;
+    background-color: #f8cee3;
+}
+.table-estadistics{
+    background-color: pink;
+}
+
+th, td{
+    border: 2px solid #A3606D;
+}
+
+th{
+    background-color: #A3606D;
+    color: white;
+    text-shadow: 3px 3px 4px black;
+    font-family: "Dancing Script", cursive;
+    letter-spacing: 3px;
+    font-weight: 100;
+    font-size: 1.4rem;
+}
+
+
