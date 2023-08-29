@@ -14,3 +14,4 @@ function generate_card_info (id, name, image, description, price, place, date){
     </div>`
     return card
 }
+

@@ -1,8 +1,44 @@
 .card-footer{
     background-color:rgb(223, 190, 201) ;
 }
+
+.icard{
+    height: 174px;
+    width: 156px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.icardInfo{
+    height: 100px;
+    overflow-y: scroll;
+}
+
+.row{
+    margin-right: 0;
+}
+
+.title{
+    height: 50px;
+    overflow-y: scroll;
+}
+
+.icardDetail, .icardBody{
+    width: 50%;
+}
+
+@media screen and (max-width:767px) {
+    .icardDetail, .icardBody{
+        width: 70%;
+    }
+}
+
 @media screen and (max-width:575px) {
     .card {
         width: 65%;
+    }
+
+    .icardDetail, .icardBody{
+        width: 100%;
     }
 }
