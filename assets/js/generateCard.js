@@ -1,17 +1,17 @@
-function generate_card (id, name, image, description, price){
-    const card = document.createElement("div")
-    card.classList.add("card", "p-2", "d-flex", "flex-column", "justify-content-between", "align-items-center", "col-sm-4", "col-lg-3")
-    card.innerHTML =  `
-    <img class="icard card-img-top w-100 d-block border rounded-5" src="${image}" alt="${name}"/>
+function generate_card({ _id, name, image, description, price, category }) {
+  const card = document.createElement("div")
+  card.classList.add("card", "p-2", "d-flex", "flex-column", "justify-content-between", "align-items-center", "col-sm-4", "col-lg-3")
+  card.innerHTML = `
+    <img class="icard card-img-top w-100 d-block border rounded-5" title="${category}" src="${image}" alt="${name}"/>
     <div class="card-body text-center">
       <h4 class="title card-title">${name}</h4>
       <p class="icardInfo card-text">${description}</p>
     </div>
     <div class="card-footer d-flex justify-content-evenly w-100 align-items-center p-3">
       <span>&dollar;${price}</span>
-      <button onclick="location.href='details.html?id=${id}'" class="btn btn-outline-dark" type="button">Details</button>
+      <button onclick="location.href='details.html?id=${_id}'" class="btn btn-outline-dark" type="button">Details</button>
     </div>`
-    return card
+  return card
 }
 
 export default generate_card;

@@ -5,14 +5,8 @@ const events = data.events;
 const sectionCard = document.getElementById("section-cards");
 
 for(event of events){
-    const id = event._id;
-    const name = event.name;
-    const image = event.image;
-    const description = event.description;
-    const price = event.price
-    const newCard = generate_card(id, name, image, description, price);
+    const newCard = generate_card(event);
 
-    sectionCard.appendChild(newCard);
-   
+    sectionCard.appendChild(newCard); 
 }
 
