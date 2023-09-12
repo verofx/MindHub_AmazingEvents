@@ -12,3 +12,4 @@ for (event of events) {
         sectionCard.appendChild(newCard);
     }
 }
+

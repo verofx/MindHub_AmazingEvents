@@ -7,7 +7,7 @@ function searchEventById(id){
   return events.find(event => event._id == id)
 }
 
-function generateCardInfo({name, image, description, price, place, date}) {
+function generateCardInfo({name, image, description, price, category, place, capacity, assistance, date}) {
   const card = document.createElement("div")
   card.classList.add("card", "w-75", "p-2", "d-flex", "flex-column", "flex-md-row",  "justify-content-between", "align-items-center", "col-sm-4", "col-lg-3")
   card.innerHTML = 
@@ -15,7 +15,10 @@ function generateCardInfo({name, image, description, price, place, date}) {
     <div class="icardBody card-body text-center">
       <h4 class="card-title">${name}</h4>
       <p class="card-text">${description}</p>
+      <p>Category: ${category}</p>
       <p>Place: ${place}</p>
+      <p>Capacity: ${capacity}</p>
+      <p>Assistance: ${assistance}</p>
       <p>Price: &dollar;${price}</p>
       <p>Date: ${date}</p>
     </div>`

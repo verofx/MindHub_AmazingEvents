@@ -5,6 +5,9 @@ const sectionCheckbox = document.getElementById("section-checkboxs");
 const searchInput = document.getElementById("search-input");
 const sectionCards = document.getElementById("section-cards");
 const events = data.events;
+const currentDate = new Date(data.currentDate);
+const url = new URL(window.location)
+const pathname = url.pathname
 
 //crea lista de categorias
 const categories = events.map(event => event.category).filter((category, index, categories) => categories.indexOf(category) === index)
@@ -44,16 +47,37 @@ function filterByCategory(events) {
     const checkboxes = Array.from(document.getElementsByClassName("checkbox"));
     const checkboxesBlue = checkboxes.filter(check => check.checked);
     if (checkboxesBlue.length == 0) {
-        return events;
+        return events
     }
     const values = checkboxesBlue.map(checked => checked.value);
     const filterChecked = events.filter(event => values.includes(event.category));
     return filterChecked;
 }
 
+function getUpcomingEvents(events){
+    const upcomingEvents = [];
+    for (event of events) {
+        const cardDate = new Date(event.date);
+        if (cardDate >= currentDate) {
+            upcomingEvents.push(event);
+        }
+    }
+    return upcomingEvents;
+}
+
+function getPastEvents(events){
+    const pastEvents = [];
+    for (event of events) {
+        const cardDate = new Date(event.date);
+        if (cardDate < currentDate) {
+            pastEvents.push(event);
+        }
+    }
+    return pastEvents;
+}
+
 //pinta las cards
 function printCards(filtered) {
-    console.log(filtered)
     sectionCards.innerHTML = "";
     if (filtered.length !== 0) {
         filtered.forEach(event => {
@@ -67,7 +91,16 @@ function printCards(filtered) {
 
 //filtra todas las cards
 function filterAll() {
-    const filteredEvents = filterByText(events, searchInput);
+    let filteredEvents = events
+
+    if (pathname === "/upcoming.html"){
+        const upcomingEvents = getUpcomingEvents(events);
+        filteredEvents = filterByText(upcomingEvents, searchInput);
+    } else if (pathname === "/past.html"){
+        const pastEvents = getPastEvents(events);
+        filteredEvents = filterByText(pastEvents, searchInput);
+    }
+    
     const filterCategory = filterByCategory(filteredEvents);
     printCards(filterCategory);
 }
