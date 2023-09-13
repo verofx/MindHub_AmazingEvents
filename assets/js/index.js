@@ -1,7 +1,7 @@
 import { data } from "./data.js";
 import generate_card from "./generateCard.js";
 
-const events = data.events;
+const events = await data.events
 const sectionCard = document.getElementById("section-cards");
 
 for(event of events){
@@ -9,4 +9,3 @@ for(event of events){
 
     sectionCard.appendChild(newCard); 
 }
-

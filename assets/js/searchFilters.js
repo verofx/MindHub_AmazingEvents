@@ -4,13 +4,18 @@ import generate_card from "./generateCard.js";
 const sectionCheckbox = document.getElementById("section-checkboxs");
 const searchInput = document.getElementById("search-input");
 const sectionCards = document.getElementById("section-cards");
+
 const events = data.events;
 const currentDate = new Date(data.currentDate);
+
 const url = new URL(window.location)
 const pathname = url.pathname
 
+function getUniqueCategories(events) {
+    return events.map(event => event.category).filter((category, index, categories) => categories.indexOf(category) === index)
+}
 //crea lista de categorias
-const categories = events.map(event => event.category).filter((category, index, categories) => categories.indexOf(category) === index)
+const categories = getUniqueCategories(events)
 
 //muestra  las cateogrias
 function showCheckbox(list) {
@@ -29,7 +34,7 @@ showCheckbox(categories);
 function filterByText(events, searchInput) {
     return events.filter(event => event.name
         .toLowerCase().includes(searchInput.value.trim().toLowerCase()) || event.description
-            .toLowerCase().includes(searchInput.value.trim().toLowerCase()));
+        .toLowerCase().includes(searchInput.value.trim().toLowerCase()));
 }
 
 //muestra las cards filtradas por tipo de evento en checkbox 
@@ -91,7 +96,7 @@ function printCards(filtered) {
 
 //filtra todas las cards
 function filterAll() {
-    let filteredEvents = events
+    let filteredEvents = []
 
     if (pathname === "/upcoming.html"){
         const upcomingEvents = getUpcomingEvents(events);
@@ -99,6 +104,8 @@ function filterAll() {
     } else if (pathname === "/past.html"){
         const pastEvents = getPastEvents(events);
         filteredEvents = filterByText(pastEvents, searchInput);
+    } else {
+        filteredEvents = filterByText(events, searchInput)
     }
     
     const filterCategory = filterByCategory(filteredEvents);
